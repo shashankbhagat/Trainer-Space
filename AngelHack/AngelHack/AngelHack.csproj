@@ -157,7 +157,6 @@
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataLayer\DataAccess.cs" />
     <Compile Include="DataLayer\RepositoryAuth.cs" />
