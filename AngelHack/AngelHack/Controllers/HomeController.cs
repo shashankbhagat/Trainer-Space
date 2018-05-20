@@ -19,7 +19,7 @@ namespace AngelHack.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("Welcome", "Home");
+            return RedirectToAction("Login", "Auth");
 
         }       
 

@@ -66,4 +66,19 @@ textarea {
     src: url('../fonts/poppins-regular.ttf') format('truetype');
 }
 
+#loginDiv {
+    display: table;
+    width: 100%;
+}
 
+#loginForm {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login input {
+    width: 250px ;
+    padding: 15px 12px;
+    font-size: 22px;
+}

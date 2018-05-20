@@ -192,6 +192,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\navbar-fixed-left.min.css" />
+    <Content Include="Content\Site2.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -241,6 +242,7 @@
     <Content Include="Images\img2.jpg" />
     <Content Include="Images\img3.jpg" />
     <Content Include="Images\img4.png" />
+    <Content Include="Images\landing.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\LOGO.svg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -282,6 +284,7 @@
     <Content Include="Views\Booking\Main.cshtml" />
     <Content Include="Views\Booking\_Main.cshtml" />
     <Content Include="Views\Home\_Layout2.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

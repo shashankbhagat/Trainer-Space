@@ -34,9 +34,14 @@ namespace AngelHack.Controllers
                 else
                     ViewBag.msg = "Invalid Login....";
             }
-            return View(a);
+            return RedirectToAction("Welcome", "Home");
         }
 
-        
+        public ActionResult Index()
+        {
+            return View();
+        }
+
     }
 }
+
