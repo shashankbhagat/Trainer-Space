@@ -24,7 +24,9 @@ textarea {
     max-width: 280px;
 }
 
-
+.navbar-custom {
+    background-color: #b2ded1;
+}
 
 @media only screen and (max-width: 1200px) {
 
@@ -38,7 +40,7 @@ textarea {
         align: center;
         margin: 10px;
         height: auto;
-        max-width: 30%;
+        max-width: 25%;
         vertical-align: middle;
     }
 }
@@ -49,3 +51,19 @@ textarea {
         display: block;
     }
 }
+
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../fonts/poppins-bold.ttf') format('truetype');
+}
+
+.classname {
+    font-family: 'poppins-bold';
+}
+
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('../fonts/poppins-regular.ttf') format('truetype');
+}
+
+

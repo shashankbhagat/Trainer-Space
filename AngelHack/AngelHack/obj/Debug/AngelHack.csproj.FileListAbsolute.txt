@@ -95,3 +95,4 @@ D:\Project\TrainerSpace\AngelHack\AngelHack\obj\Debug\AngelHack.csproj.CoreCompi
 D:\Project\TrainerSpace\AngelHack\AngelHack\obj\Debug\AngelHack.csproj.CopyComplete
 D:\Project\TrainerSpace\AngelHack\AngelHack\obj\Debug\AngelHack.dll
 D:\Project\TrainerSpace\AngelHack\AngelHack\obj\Debug\AngelHack.pdb
+D:\Project\TrainerSpace\AngelHack\AngelHack\obj\Debug\AngelHack.csprojResolveAssemblyReference.cache
