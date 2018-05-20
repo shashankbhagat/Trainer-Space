@@ -6,7 +6,9 @@
 }
 
 <h2>Main</h2>
-
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+</head>
 @section Sidebar{
 
     @using (Ajax.BeginForm("MainAJAX", "Booking", Model.locationSelected + Model.StudioTypeselected, new AjaxOptions
@@ -24,50 +26,30 @@
 
         <div class="form-group">
 
+            
            
             <div style="margin-left:15px;">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                time filter
+                    <hr />
+                    <div class="navbar-collapse collapse">
+                        @Html.LabelFor(model => model.locationSelected, htmlAttributes: new { @class = "control-label" })
+                        <br />
 
-                <hr />
-                <div class="navbar-collapse collapse">
-                    @Html.LabelFor(model => model.locationSelected, htmlAttributes: new { @class = "control-label" })
-
-                    @foreach (var location in Model.locationList)
-                    {
-                        <ul class="nav navbar-nav">
-                            <li>
-                                @Html.RadioButtonFor(g => g.locationSelected, @location)@Html.Label(@location.Text)
-                                @Html.ValidationMessageFor(model => model.locationSelected, "", new { @class = "text-danger" })
-                            </li>
-                        </ul>
-                    }
+                        @Html.DropDownListFor(model => model.locationSelected, Model.locationList,new { @class="control-label"})
 
 
+                    </div>
+                    <hr />
+                    <div class="navbar-collapse collapse">
+                        @Html.LabelFor(model => model.StudioTypeselected, htmlAttributes: new { @class = "control-label" })
+                        <br />
+                        @Html.DropDownListFor(model => model.StudioTypeselected, Model.StudioTypeList, new { @class = "control-label" })
+
+
+                    </div>
                 </div>
-                <hr />
-                <div class="navbar-collapse collapse">
-                    @Html.LabelFor(model => model.StudioTypeselected, htmlAttributes: new { @class = "control-label" })
-                    @foreach (var location in Model.StudioTypeList)
-                    {
-                        <ul class="nav navbar-nav">
-                            <li>
-                                @Html.RadioButtonFor(g => g.StudioTypeselected, @location)@Html.Label(@location.Text)
-                                @Html.ValidationMessageFor(model => model.StudioTypeselected, "", new { @class = "text-danger" })
-                            </li>
-                        </ul>
-                    }
-
-                </div>
-            </div>
-            <!--
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Welcome", "Welcome", "Home")</li>
-                </ul>
-            </div>
-                -->
+           
         </div>
     }
 }
@@ -80,23 +62,24 @@
 
 
 
+
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script>
+    <script src="~/Scripts/jquery.timePicker.min.js"></script>
+    <link href="~/Scripts/timePicker.css" rel="stylesheet"/>
+
+    <script type="text/javascript">
         $(function () {
             $("#locationSelected").change(function () {
-                var test = document.getElementById("locationSelected");
-                alert(test.options[test.selectedIndex].text);
                 $(this).closest('form').submit();
             })
         });
 
         $(function () {
             $("#StudioTypeselected").change(function () {
-                var test = document.getElementById("StudioTypeselected");
-                alert(test.options[test.selectedIndex].text);
                 $(this).closest('form').submit();
             })
         });
@@ -104,6 +87,15 @@
         function MainLoadFailure(response) {
             $("#divStatus").html("Problem loading data....");
         }
+
+        $(function () {
+            $("#time2").timePicker({
+                startTime: "02.00 AM", // Using string. Can take string or Date object.
+                endTime: new Date(0, 0, 0, 15, 30, 0), // Using Date object here.
+                timeFormat: 'hh.mm tt',
+                step: 15
+            });
+        });
     </script>
 
 }
