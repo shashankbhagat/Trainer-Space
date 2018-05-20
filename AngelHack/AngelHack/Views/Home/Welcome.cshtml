@@ -1,0 +1,18 @@
+﻿
+@model IList<AngelHack.Models.ModelView.BookingView>
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Your recent studios</h2>
+
+<div class="row">
+    <div id="small-img">
+
+        @foreach (var item in Model)
+        {
+            <img src="@Url.Content(item.SpaceImgUrl)" alt="Image" />
+        }
+    </div>
+</div>

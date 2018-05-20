@@ -1,12 +1,13 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 150px;
     padding-bottom: 20px;
+    background-color: #b2ded1;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +22,30 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+
+    * {
+        box-sizing: boreder-box;
+    }
+
+    .row img {
+        border: 0 none;
+        display: inline;
+        align: center;
+        margin: 10px;
+        height: auto;
+        max-width: 30%;
+        vertical-align: middle;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .row img {
+        display: block;
+    }
 }

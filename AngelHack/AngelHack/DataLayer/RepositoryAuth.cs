@@ -81,5 +81,11 @@ namespace AngelHack.DataLayer
             return (int)uid;
         }
 
+        public static int GetRecentBookings(int userId)
+        {
+
+            return 0;
+        }
+
     }
 }
