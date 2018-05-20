@@ -7,67 +7,20 @@
     @for (int i = 0; i < Model.Count; i++)
     {
 
-<<<<<<< HEAD
-    <tr>
-
-        <td>
-            <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
-            @Html.DisplayFor(modelItem => Model[i].Title)<br />
-            @if (Model[i].Available != 0)
-            {
-                <p class="alert-danger">Booked!!!</p>
-            }
-            else
-            {
-                @Html.ActionLink("Book", "Book", new {  id=Model[i].Id}, new {@class="myadd"})
-            }
-            @(i=i + 1)
-        </td>
-        @if (i < Model.Count)
-        {
-            <td>
-                <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
-=======
         <tr>
             <td align="center">
                 <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) height="200" /> <br />
->>>>>>> UI
                 @Html.DisplayFor(modelItem => Model[i].Title)<br />
                 @if (Model[i].Available != 0)
                 {
-                    <p class="alert-danger">Booked!!!</p>
+                    @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
                 }
                 else
                 {
-<<<<<<< HEAD
-                    @Html.ActionLink("Book", "Book", new {  id=Model[i].Id}, new {@class="myadd"})
-                    
-=======
                     <!-- <p class="alert-danger">Booked!!!</p>-->
->>>>>>> UI
                 }
                 @(i = i + 1)
             </td>
-<<<<<<< HEAD
-        }
-        
-        @if (i < Model.Count)
-        {
-            <td>
-                <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
-                @Html.DisplayFor(modelItem => Model[i].Title)<br />
-                @if (Model[i].Available != 0)
-                {
-                    <p class="alert-danger">Booked!!!</p>
-                }
-                else
-                {
-                    @Html.ActionLink("Booking", "AddBooking", new {  id=Model[i].Id}, new {@class="myadd"})
-                }
-            </td>
-        }        
-    </tr>
-=======
             @if (i < Model.Count)
             {
                 <td align="center">
@@ -101,56 +54,6 @@
                 </td>
             }
         </tr>
->>>>>>> UI
     }
 
 </table>
-
-<div id="AddBooking" style="display:none"></div>
-
-
-@section Scripts {
-<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-<script>
-    $(function () {
-        var DialogEdit = function () {
-            this.showDialog = function (url) {
-                $("#AddBooking").dialog({
-                    autoOpen: true,
-                    width: "600",
-                    resizable: false,
-                    title: "Confirmation",
-                    modal: true,
-                    closeText: "X",
-                    dialogClass: 'alert',
-                    position: {
-                        my: "center",
-                        at: "top+150"
-                    },
-                    closeOnEscape: true,
-                    open: function () {
-                        $(this).load(url);
-                    },
-                    buttons: {                        
-                        Cancel: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                });
-            }
-            this.closeDialog = function () {
-                $(this).dialog("close");
-            }
-        }
-
-        $(".myadd").on("click", function (e) { // click event for the edit hyperlink
-            dialogEdit = new DialogEdit();
-            url = $(this).attr('href');
-            //dialogEdit.showDialog(url);
-            e.preventDefault(); // cancel the click event
-            return false;
-        });
-    });
-
-</script>
-}
