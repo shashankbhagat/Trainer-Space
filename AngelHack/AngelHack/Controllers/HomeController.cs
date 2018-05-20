@@ -21,21 +21,7 @@ namespace AngelHack.Controllers
         {
             return RedirectToAction("Welcome", "Home");
 
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        }       
 
         public ActionResult Welcome()
         {
@@ -43,9 +29,7 @@ namespace AngelHack.Controllers
 
             var bookings = _bookingRepository.GetLastBooking(3);
 
-            bookings.ToList();
-
-            return View(bookings);
+            return View( bookings);
         }
     }
 }

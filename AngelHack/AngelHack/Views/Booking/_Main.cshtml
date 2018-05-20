@@ -1,10 +1,13 @@
 ﻿@model IList<AngelHack.Models.MainVM>
 
-<table class="table">
+
+
+<table class="table" style="border:0">
 
     @for (int i = 0; i < Model.Count; i++)
     {
 
+<<<<<<< HEAD
     <tr>
 
         <td>
@@ -24,6 +27,11 @@
         {
             <td>
                 <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
+=======
+        <tr>
+            <td align="center">
+                <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) height="200" /> <br />
+>>>>>>> UI
                 @Html.DisplayFor(modelItem => Model[i].Title)<br />
                 @if (Model[i].Available != 0)
                 {
@@ -31,11 +39,16 @@
                 }
                 else
                 {
+<<<<<<< HEAD
                     @Html.ActionLink("Book", "Book", new {  id=Model[i].Id}, new {@class="myadd"})
                     
+=======
+                    <!-- <p class="alert-danger">Booked!!!</p>-->
+>>>>>>> UI
                 }
-                @(i=i+1)
+                @(i = i + 1)
             </td>
+<<<<<<< HEAD
         }
         
         @if (i < Model.Count)
@@ -54,6 +67,41 @@
             </td>
         }        
     </tr>
+=======
+            @if (i < Model.Count)
+            {
+                <td align="center">
+                    <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) height="200" /> <br />
+                    @Html.DisplayFor(modelItem => Model[i].Title)<br />
+                    @if (Model[i].Available != 0)
+                    {
+                        @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                    }
+                    else
+                    {
+                        <!-- <p class="alert-danger">Booked!!!</p>-->
+                    }
+                    @(i = i + 1)
+                </td>
+            }
+
+            @if (i < Model.Count)
+            {
+                <td align="center">
+                    <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl)  height="200" /> <br />
+                    @Html.DisplayFor(modelItem => Model[i].Title)<br />
+                    @if (Model[i].Available != 0)
+                    {
+                        @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                    }
+                    else
+                    {
+                        <!-- <p class="alert-danger">Booked!!!</p>-->
+                    }
+                </td>
+            }
+        </tr>
+>>>>>>> UI
     }
 
 </table>

@@ -9,34 +9,12 @@
 
     <link href="~/Content/navbar-fixed-left.min.css" rel="stylesheet" />
 </head>
-<body class="navbar-custom">
-    
-    @if (IsSectionDefined("Sidebar"))
-    {
-        <div class="navbar navbar-custom navbar-fixed-left">
-            <div>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Need Logo here", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                @RenderSection("Sidebar");
+<body class="navbar-static-top">
 
-            </div>
-        </div>
-    }
-
-    <div class="navbar navbar-custom navbar-fixed-top" style="background-color:white;">
+    <div class="navbar navbar-custom navbar-fixed-top">
         <div>
             <div class="navbar-header">
-                <a href="@Url.Action("Index", "Home")">
-                    <img src="~/Images/LOGO.svg" style="height:60px; margin-left:20px;" />
-                </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -44,7 +22,7 @@
             </div>
         </div>
     </div>
-
+   
     <div class=" body-content" style="background-color:lightgray;">
         @RenderBody()
         <hr />

@@ -280,6 +280,7 @@
     <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\navbar-fixed-left.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -329,11 +330,14 @@
     <Content Include="Images\img2.jpg" />
     <Content Include="Images\img3.jpg" />
     <Content Include="Images\img4.png" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\LOGO.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Content Include="bin\AngelHack.dll.config" />
     <Content Include="bin\ApplicationInsights.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
@@ -345,6 +349,10 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+=======
+    <Content Include="fonts\Poppins-Bold.ttf" />
+    <Content Include="fonts\Poppins-Regular.ttf" />
+>>>>>>> UI
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -376,7 +384,11 @@
     <Content Include="Views\Home\Space.cshtml" />
     <Content Include="Views\Booking\Main.cshtml" />
     <Content Include="Views\Booking\_Main.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Booking\_AddBooking.cshtml" />
+=======
+    <Content Include="Views\Home\_Layout2.cshtml" />
+>>>>>>> UI
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
