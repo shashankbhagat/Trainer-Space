@@ -1,0 +1,58 @@
+﻿@model IList<AngelHack.Models.MainVM>
+
+<table class="table">
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+
+    <tr>
+
+        <td>
+            <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
+            @Html.DisplayFor(modelItem => Model[i].Title)<br />
+            @if (Model[i].Available != 0)
+            {
+                @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+            }
+            else
+            {
+                <p class="alert-danger">Booked!!!</p>
+            }
+            @(i=i + 1)
+        </td>
+        @if (i < Model.Count)
+        {
+            <td>
+                <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
+                @Html.DisplayFor(modelItem => Model[i].Title)<br />
+                @if (Model[i].Available != 0)
+                {
+                    @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                }
+                else
+                {
+                    <p class="alert-danger">Booked!!!</p>
+                }
+                @(i=i+1)
+            </td>
+        }
+        
+        @if (i < Model.Count)
+        {
+            <td>
+                <img src=@Html.DisplayFor(modelItem => Model[i].ImageUrl) width="200" height="200" /> <br />
+                @Html.DisplayFor(modelItem => Model[i].Title)<br />
+                @if (Model[i].Available != 0)
+                {
+                    @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                }
+                else
+                {
+                    <p class="alert-danger">Booked!!!</p>
+                }
+            </td>
+        }        
+    </tr>
+    }
+
+</table>
