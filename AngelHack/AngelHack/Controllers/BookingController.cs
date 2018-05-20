@@ -18,9 +18,9 @@ namespace AngelHack.Controllers
             mvm.locationSelected = mvm.locationList[0].Value;
             mvm.StudioTypeList = RepositoryMain.getStudioType();
             mvm.StudioTypeselected = mvm.StudioTypeList[0].Value;
-            mvm.dateInOut = "7:8";
-            mvm.mainListCount = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected,mvm.dateInOut).Count;
-            mvm.mainList = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected,mvm.dateInOut);
+            //mvm.dateInOut = "7:8";
+            mvm.mainListCount = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected).Count;
+            mvm.mainList = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected);
             
             return View(mvm);
         }
@@ -31,7 +31,7 @@ namespace AngelHack.Controllers
             List<MainVM> mvmList = null;
             try
             {
-                mvmList = RepositoryMain.getSpacewithAvailibility(locationSelected, StudioTypeselected, dateInOut);
+                mvmList = RepositoryMain.getSpacewithAvailibility(locationSelected, StudioTypeselected);
             }
             catch(Exception)
             {

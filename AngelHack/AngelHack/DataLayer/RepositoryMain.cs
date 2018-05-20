@@ -55,24 +55,23 @@ namespace AngelHack.DataLayer
             return studioList;
         }
 
-        public static List<MainVM> getSpacewithAvailibility(string location, string studioType, string dateInOut)
+        public static List<MainVM> getSpacewithAvailibility(string location, string studioType)
         {
             List<MainVM> mainList = new List<MainVM>();
             try
             {
-                string sql = "select s.Id as Id,s.Title as Title,s.ImageUrl as ImageUrl,case when isnull(b.Id,0)=0 then 0 else 1 end as Available from Space s inner join Location l on (s.LocationId=l.Id) inner join SpaceType sp on(sp.Id = s.SpaceTypeId) left join Booking b on(s.Id = b.SpaceId and convert(date,b.timeIn)=convert(date,getdate()) and dateadd(HH,convert(int,SUBSTRING(@dateInOut,0,CHARINDEX(':',@dateInOut,0))),convert(varchar,convert(date,getdate()))) not between b.timeIn and b.timeOut and dateadd(HH, convert(int, SUBSTRING(@dateInOut,CHARINDEX(':', @dateInOut, 0) + 1,LEN(@dateInOut))),convert(varchar, convert(date, getdate()))) not between b.timeIn and b.timeOut) where l.Name = @location and sp.Title = @studioType";
+                string sql = "select s.Id as Id,s.Title as Title,s.ImageUrl as ImageUrl,case when isnull(b.Id,0)=0 then 0 else 1 end as Available from Space s inner join Location l on (s.LocationId=l.Id) inner join SpaceType sp on(sp.Id = s.SpaceTypeId) left join Booking b on(s.Id = b.SpaceId and convert(date,b.timeIn)=convert(date,getdate()) ) where l.Name = @location and sp.Title = @studioType";
                 List<SqlParameter> pList = new List<SqlParameter>();
                 SqlParameter p1 = new SqlParameter("@location", SqlDbType.VarChar);
                 SqlParameter p2 = new SqlParameter("@studioType", SqlDbType.VarChar);
-                SqlParameter p3 = new SqlParameter("@dateInOut", SqlDbType.VarChar);
+                
                 p1.Value = location;
                 p2.Value = studioType;
-                p3.Value = dateInOut;
+                
 
                 pList.Add(p1);
                 pList.Add(p2);
-                pList.Add(p3);
-
+                
                 DataTable dt = DataAccess.GetManyRowsCols(sql, pList);
                 foreach(DataRow dr in dt.Rows)
                 {

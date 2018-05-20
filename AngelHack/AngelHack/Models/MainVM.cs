@@ -31,6 +31,6 @@ namespace AngelHack.Models
 
         public List<MainVM> mainList { get; set; }
 
-        public string dateInOut { get; set; }
+        public DateTime dateInOut { get; set; }
     }
 }
