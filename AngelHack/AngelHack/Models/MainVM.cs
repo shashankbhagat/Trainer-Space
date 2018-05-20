@@ -8,6 +8,8 @@ namespace AngelHack.Models
 {
     public class MainVM
     {
+        public int Id { get; set; }
+
         public List<SelectListItem> locationList { get; set; }
         public string locationSelected { get; set; }
 
@@ -23,5 +25,7 @@ namespace AngelHack.Models
         public int mainListCount { get; set; }
 
         public List<MainVM> mainList { get; set; }
+
+        public string dateInOut { get; set; }
     }
 }

@@ -12,11 +12,11 @@
             @Html.DisplayFor(modelItem => Model[i].Title)<br />
             @if (Model[i].Available != 0)
             {
-                @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                <p class="alert-danger">Booked!!!</p>
             }
             else
             {
-                <p class="alert-danger">Booked!!!</p>
+                @Html.ActionLink("Book", "Book", new {  id=Model[i].Id}, new {@class="myadd"})
             }
             @(i=i + 1)
         </td>
@@ -27,11 +27,12 @@
                 @Html.DisplayFor(modelItem => Model[i].Title)<br />
                 @if (Model[i].Available != 0)
                 {
-                    @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                    <p class="alert-danger">Booked!!!</p>
                 }
                 else
                 {
-                    <p class="alert-danger">Booked!!!</p>
+                    @Html.ActionLink("Book", "Book", new {  id=Model[i].Id}, new {@class="myadd"})
+                    
                 }
                 @(i=i+1)
             </td>
@@ -44,11 +45,11 @@
                 @Html.DisplayFor(modelItem => Model[i].Title)<br />
                 @if (Model[i].Available != 0)
                 {
-                    @Html.ActionLink("Book", "Book", new { /* id=item.PrimaryKey */ })
+                    <p class="alert-danger">Booked!!!</p>
                 }
                 else
                 {
-                    <p class="alert-danger">Booked!!!</p>
+                    @Html.ActionLink("Booking", "AddBooking", new {  id=Model[i].Id}, new {@class="myadd"})
                 }
             </td>
         }        
@@ -56,3 +57,52 @@
     }
 
 </table>
+
+<div id="AddBooking" style="display:none"></div>
+
+
+@section Scripts {
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script>
+    $(function () {
+        var DialogEdit = function () {
+            this.showDialog = function (url) {
+                $("#AddBooking").dialog({
+                    autoOpen: true,
+                    width: "600",
+                    resizable: false,
+                    title: "Confirmation",
+                    modal: true,
+                    closeText: "X",
+                    dialogClass: 'alert',
+                    position: {
+                        my: "center",
+                        at: "top+150"
+                    },
+                    closeOnEscape: true,
+                    open: function () {
+                        $(this).load(url);
+                    },
+                    buttons: {                        
+                        Cancel: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            }
+            this.closeDialog = function () {
+                $(this).dialog("close");
+            }
+        }
+
+        $(".myadd").on("click", function (e) { // click event for the edit hyperlink
+            dialogEdit = new DialogEdit();
+            url = $(this).attr('href');
+            //dialogEdit.showDialog(url);
+            e.preventDefault(); // cancel the click event
+            return false;
+        });
+    });
+
+</script>
+}
