@@ -1,7 +1,5 @@
-﻿using AngelHack.App_Start;
-using AngelHack.DataLayer.Repo;
-using System;
-using System.Collections.Generic;
+﻿using AngelHack.Infrastructure;
+using AngelHack.Model.Implementation;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;

@@ -1,16 +1,19 @@
-﻿using AngelHack.DataLayer;
-using AngelHack.Models;
+﻿using AngelHack.Model;
+using AngelHack.Model.Contract;
 using AngelHack.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AngelHack.Controllers
 {
     public class AuthController : Controller
     {
+        IMembershipRepository _membershipRepository;
+
+        public AuthController(IMembershipRepository membershipRepository)
+        {
+            _membershipRepository = membershipRepository;
+        }
+
         // GET: Auth
         public ActionResult Login()
         {
@@ -23,7 +26,7 @@ namespace AngelHack.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool result = RepositoryAuth.VerifyLogin(a.UserName, a.Password);
+                bool result = _membershipRepository.VerifyLogin(a.UserName, a.Password);                                
                 if (result == true)
                 {
                     ViewBag.msg = "Welcome " + a.UserName;

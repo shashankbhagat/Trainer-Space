@@ -1,5 +1,4 @@
-﻿@model AngelHack.Models.MainVM
-
+﻿@model AngelHack.ViewModels.BookingViewModel
 @{
     ViewBag.Title = "Main";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -58,10 +57,6 @@
         Html.RenderPartial("_Main", Model.mainList);
     }
 </div>
-
-
-
-
 
 
 @section Scripts {

@@ -1,5 +1,5 @@
-﻿using AngelHack.DataLayer;
-using AngelHack.Models;
+﻿using AngelHack.Model.Contract;
+using AngelHack.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +10,37 @@ namespace AngelHack.Controllers
 {
     public class BookingController : Controller
     {
+        ISpaceRepository _spaceRepository;
+
+        public BookingController(ISpaceRepository spaceRepository)
+        {
+            _spaceRepository = spaceRepository;
+        }
+
         // GET: Booking
         public ActionResult Main()
         {
-            MainVM mvm = new MainVM();
-            mvm.locationList = RepositoryMain.getLocations();
-            mvm.locationSelected = mvm.locationList[0].Value;
-            mvm.StudioTypeList = RepositoryMain.getStudioType();
-            mvm.StudioTypeselected = mvm.StudioTypeList[0].Value;
-            //mvm.dateInOut = "7:8";
-            mvm.mainListCount = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected).Count;
-            mvm.mainList = RepositoryMain.getSpacewithAvailibility(mvm.locationSelected, mvm.StudioTypeselected);
-            
+            BookingViewModel mvm = new BookingViewModel
+            {
+                locationList = _spaceRepository.GetLocations(),
+                StudioTypeList = _spaceRepository.GetSpaceTypes(),
+                mainList = _spaceRepository.GetAlailableSpaces(0, 0).ToList()
+            };           
             return View(mvm);
         }
 
-        
-        public ActionResult MainAJAX(string locationSelected, string StudioTypeselected,  string dateInOut)
+
+        public ActionResult MainAJAX(int locationSelected, int StudioTypeselected, string dateInOut)
         {
-            List<MainVM> mvmList = null;
+            List<SpaceViewModel> mvmList = new List<SpaceViewModel>();
             try
             {
-                mvmList = RepositoryMain.getSpacewithAvailibility(locationSelected, StudioTypeselected);
+                mvmList = _spaceRepository.GetAlailableSpaces(StudioTypeselected, locationSelected)                   
+                    .ToList();
             }
-            catch(Exception)
+            catch (Exception e)
             {
-                throw;
+                // log error
             }
             return PartialView("_Main", mvmList);
         }

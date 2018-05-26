@@ -1,5 +1,5 @@
 ﻿
-@model IList<AngelHack.Models.ModelView.BookingView>
+@model IList<AngelHack.ViewModels.SpaceViewModel>
 @{
     ViewBag.Title = "Welcome";
     Layout = null;
@@ -44,7 +44,7 @@
 
                 @foreach (var item in Model)
             {
-                <img style="margin:10px;" src="@Url.Content(item.SpaceImgUrl)" alt="Image" />
+                <img style="margin:10px;" src="@Url.Content(item.ImageUrl)" alt="Image" />
         }
             </div>
         </div>

@@ -58,6 +58,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -153,40 +156,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Model\Contract\IMembershipRepository.cs" />
+    <Compile Include="Model\Contract\ISpaceRepository.cs" />
+    <Compile Include="Model\Implementation\BaseRepository.cs" />
+    <Compile Include="Model\Implementation\MembershipRepository.cs" />
+    <Compile Include="Model\Implementation\SpaceRepository.cs" />
+    <Compile Include="Infrastructure\ControllerFactory.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="Infrastructure\IocContainer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DataLayer\DataAccess.cs" />
-    <Compile Include="DataLayer\RepositoryAuth.cs" />
-    <Compile Include="DataLayer\RepositoryMain.cs" />
-    <Compile Include="DataLayer\Repo\AppDbContext.cs" />
-    <Compile Include="DataLayer\Repo\BookingRepository.cs" />
-    <Compile Include="DataLayer\Repo\IAppDbContex.cs" />
-    <Compile Include="DataLayer\Repo\IBookingRepository.cs" />
+    <Compile Include="Model\Implementation\DataAccess.cs" />
+    <Compile Include="Model\Implementation\AppDbContext.cs" />
+    <Compile Include="Model\Implementation\BookingRepository.cs" />
+    <Compile Include="Model\Contract\IAppDbContex.cs" />
+    <Compile Include="Model\Contract\IBookingRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\MainVM.cs" />
-    <Compile Include="Models\ModelView\Booking.cs" />
-    <Compile Include="Models\ModelView\BookingView.cs" />
-    <Compile Include="Models\ModelView\Location.cs" />
-    <Compile Include="Models\ModelView\Space.cs" />
-    <Compile Include="Models\ModelView\SpaceType.cs" />
-    <Compile Include="Models\ModelView\TimeSlot.cs" />
-    <Compile Include="Models\ModelView\Trainer.cs" />
-    <Compile Include="Models\Space.cs" />
-    <Compile Include="Models\SpaceTimeSlot.cs" />
-    <Compile Include="Models\SpaceType.cs" />
-    <Compile Include="Models\TimeSlot.cs" />
-    <Compile Include="Models\Trainer.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="ViewModels\BookingViewModel.cs" />
+    <Compile Include="Model\Booking.cs" />
+    <Compile Include="ViewModels\BookingView.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Space.cs" />
+    <Compile Include="Model\SpaceType.cs" />
+    <Compile Include="Model\TimeSlot.cs" />
+    <Compile Include="Model\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\SessionFacade.cs" />
+    <Compile Include="ViewModels\SpaceTimeSlot.cs" />
+    <Compile Include="ViewModels\SpaceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

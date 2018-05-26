@@ -1,4 +1,4 @@
-﻿using AngelHack.DataLayer;
+﻿using AngelHack.Model.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace AngelHack.Controllers
         {
             return RedirectToAction("Login", "Auth");
 
-        }       
+        }
 
         public ActionResult Welcome()
         {
@@ -29,7 +29,7 @@ namespace AngelHack.Controllers
 
             var bookings = _bookingRepository.GetLastBooking(3);
 
-            return View( bookings);
+            return View(bookings);
         }
     }
 }
