@@ -29,7 +29,7 @@ namespace AngelHack.DataLayer.Contract
         {
             container.Register(Component.For<IAppDbContex>().ImplementedBy<AppDbContext>().LifestylePerWebRequest());
             container.Register(Component.For<IBookingRepository>().ImplementedBy<BookingRepository>().LifestylePerWebRequest());
-            container.Register(Component.For<IMembershipRepository>().ImplementedBy<MembershipRepository>().LifestylePerWebRequest());
+            container.Register(Component.For<IMembershipRepository>().ImplementedBy<FakeMembershipRepository>().LifestylePerWebRequest());
             container.Register(Component.For<ISpaceRepository>().ImplementedBy<SpaceRepository>().LifestylePerWebRequest());
         }
     }

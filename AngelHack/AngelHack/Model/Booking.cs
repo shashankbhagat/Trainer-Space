@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+
 
 namespace AngelHack.Model
 {
@@ -11,7 +9,6 @@ namespace AngelHack.Model
     {
         [Column("Id")]
         public int Id { get; set; }
-
         
         public Space Space { get; set; }                
         public Trainer Trainer { get; set; }

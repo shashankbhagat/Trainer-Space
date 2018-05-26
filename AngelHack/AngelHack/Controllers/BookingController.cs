@@ -3,7 +3,6 @@ using AngelHack.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AngelHack.Controllers
@@ -20,27 +19,27 @@ namespace AngelHack.Controllers
         // GET: Booking
         public ActionResult Main()
         {
-            BookingViewModel mvm = new BookingViewModel
+            BookingViewModel bookingViewModel = new BookingViewModel
             {
                 locationList = _spaceRepository.GetLocations(),
                 StudioTypeList = _spaceRepository.GetSpaceTypes(),
                 mainList = _spaceRepository.GetAlailableSpaces(0, 0).ToList()
-            };           
-            return View(mvm);
+            };
+            return View(bookingViewModel);
         }
-
 
         public ActionResult MainAJAX(int locationSelected, int StudioTypeselected, string dateInOut)
         {
-            List<SpaceViewModel> mvmList = new List<SpaceViewModel>();
+            List<SpaceViewModel> mvmList;
             try
             {
-                mvmList = _spaceRepository.GetAlailableSpaces(StudioTypeselected, locationSelected)                   
+                mvmList = _spaceRepository.GetAlailableSpaces(StudioTypeselected, locationSelected)
                     .ToList();
             }
             catch (Exception e)
             {
                 // log error
+                mvmList = new List<SpaceViewModel>();
             }
             return PartialView("_Main", mvmList);
         }

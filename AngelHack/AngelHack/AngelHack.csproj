@@ -159,17 +159,15 @@
     <Compile Include="Model\Contract\IMembershipRepository.cs" />
     <Compile Include="Model\Contract\ISpaceRepository.cs" />
     <Compile Include="Model\Implementation\BaseRepository.cs" />
-    <Compile Include="Model\Implementation\MembershipRepository.cs" />
+    <Compile Include="Model\Implementation\FakeMembershipRepository.cs" />
     <Compile Include="Model\Implementation\SpaceRepository.cs" />
     <Compile Include="Infrastructure\ControllerFactory.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="Infrastructure\IocContainer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Model\Implementation\DataAccess.cs" />
     <Compile Include="Model\Implementation\AppDbContext.cs" />
     <Compile Include="Model\Implementation\BookingRepository.cs" />
     <Compile Include="Model\Contract\IAppDbContex.cs" />
@@ -275,16 +273,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Home\Welcome.cshtml" />
-    <Content Include="Views\Home\Space.cshtml" />
     <Content Include="Views\Booking\Main.cshtml" />
     <Content Include="Views\Booking\_Main.cshtml" />
-    <Content Include="Views\Home\_Layout2.cshtml" />
+    <Content Include="Views\Home\_HomeLayout.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
