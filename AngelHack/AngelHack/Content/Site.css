@@ -10,7 +10,7 @@
     padding-right: 30px;
 }
 
-h1.login {    
+h1.login {
     text-align: center;
     color: red;
     font-family: poppins-bold;
@@ -42,29 +42,6 @@ textarea {
     background-color: #b2ded1;
 }
 
-@media only screen and (max-width: 1200px) {
-
-    * {
-        box-sizing: boreder-box;
-    }
-
-    .row img {
-        border: 0 none;
-        display: inline;
-        align: center;
-        margin: 10px;
-        height: auto;
-        max-width: 25%;
-        vertical-align: middle;
-    }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    .row img {
-        display: block;
-    }
-}
 
 @font-face {
     font-family: 'poppins-bold';
@@ -92,7 +69,33 @@ textarea {
 }
 
 .login input {
-    width: 250px ;
+    width: 250px;
     padding: 15px 12px;
     font-size: 22px;
 }
+
+
+@media only screen and (max-width: 1200px) {
+
+    * {
+        box-sizing: boreder-box;
+    }
+
+    .row img {
+        border: 0 none;
+        display: inline;
+        align: center;
+        margin: 10px;
+        height: auto;
+        max-width: 30%;
+        vertical-align: middle;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .row img {
+        display: block;
+    }
+}
+
