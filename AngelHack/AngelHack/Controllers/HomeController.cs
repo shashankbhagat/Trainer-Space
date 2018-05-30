@@ -25,7 +25,7 @@ namespace AngelHack.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
-            var bookings = _bookingRepository.GetLastBooking(3);
+            var bookings = _bookingRepository.GetLastBooking(4);
 
             return View(bookings);
         }

@@ -28,6 +28,7 @@ namespace AngelHack
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/Content.css",
                       "~/Content/themes/base/jquery-ui.min.css",
                       "~/Content/site.css"));
         }

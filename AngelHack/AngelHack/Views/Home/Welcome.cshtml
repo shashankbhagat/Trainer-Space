@@ -8,21 +8,9 @@
 <h2 style="text-align:center;color:red"> @Html.ActionLink("Book a space", "Main", "Booking", null, new { @style = "color:red; font-family: poppins-bold; font-size: 65px" }) &#9658;</h2>
 <br /><br />
 <h2 style="text-align:center; font-family: poppins-bold; font-size:26px;"> Your recent studios</h2>
-<div class="row">
-    <div id="small-img" class="column">
-        @foreach (var item in Model)
-        {
-            <img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:30%" />
-        }
-    </div>
-</div>
-
-
-
-<div class="row">
-    <div id="small-img">
-        <img src="https://www.bogear.com.au/blog/wp-content/uploads/2013/11/Red-Swatch-300x300.jpg" class="img-responsive inline" alt="" />
-        <img src="https://party-nite.co.uk/697-777-large/pack-of-caribbean-teal-solid-colour-2-ply-paper-napkins.jpg" class="img-responsive inline" alt="" />
-        <img src="http://lotusgemology.com/images/library/articles/quality/ruby-sapphire-borders/pink.jpg" class="img-responsive inline" alt="" />
-    </div>
-</div>
+<ul class="flex-container">
+    @foreach (var item in Model)
+    {   
+        <li class="flex-item"><img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:100%" /></li>   
+    }    
+</ul>

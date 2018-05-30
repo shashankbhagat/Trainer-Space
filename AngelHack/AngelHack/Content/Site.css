@@ -4,7 +4,6 @@
     background-color: #b2ded1;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 30px;
     padding-right: 30px;
@@ -24,14 +23,10 @@ h1.login {
     font-size: 65px
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
@@ -41,7 +36,6 @@ textarea {
 .navbar-custom {
     background-color: #b2ded1;
 }
-
 
 @font-face {
     font-family: 'poppins-bold';
@@ -74,28 +68,18 @@ textarea {
     font-size: 22px;
 }
 
-
-@media only screen and (max-width: 1200px) {
-
-    * {
-        box-sizing: boreder-box;
-    }
-
-    .row img {
-        border: 0 none;
-        display: inline;
-        align: center;
-        margin: 10px;
-        height: auto;
-        max-width: 30%;
-        vertical-align: middle;
-    }
+* {
+    box-sizing: border-box;
 }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    .row img {
-        display: block;
-    }
+body {
+    margin: 0;
+    font-family: Arial;
 }
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
 
