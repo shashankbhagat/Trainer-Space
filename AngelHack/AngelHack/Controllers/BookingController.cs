@@ -23,26 +23,28 @@ namespace AngelHack.Controllers
             {
                 locationList = _spaceRepository.GetLocations(),
                 StudioTypeList = _spaceRepository.GetSpaceTypes(),
-                mainList = _spaceRepository.GetAlailableSpaces(0, 0).ToList()
+                mainList = _spaceRepository.GetAlailableSpaces(0, 0, null).ToList()
             };
             return View(bookingViewModel);
         }
 
-        public ActionResult MainAJAX(int locationSelected, int StudioTypeselected, string dateInOut)
+        public ActionResult FilterChanged(int locationSelected, int studioTypeselected, DateTime date)
         {
             List<SpaceViewModel> mvmList;
+
             try
             {
-                mvmList = _spaceRepository.GetAlailableSpaces(StudioTypeselected, locationSelected)
+                mvmList = _spaceRepository
+                    .GetAlailableSpaces(studioTypeselected, locationSelected, date)
                     .ToList();
             }
             catch (Exception e)
             {
-                // log error
                 mvmList = new List<SpaceViewModel>();
             }
             return PartialView("_Main", mvmList);
         }
+
 
         public ActionResult AddBooking(int id)
         {

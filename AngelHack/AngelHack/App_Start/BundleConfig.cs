@@ -22,15 +22,23 @@ namespace AngelHack
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+           
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/jquery-1.12.4.min.js",
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap-slider.js",                   
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/Content.css",
+                      "~/Content/font-awesome.min.css.css",
+                      "~/Content/bootstrap-slider.min.css",
                       "~/Content/themes/base/jquery-ui.min.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css"
+                      ));
+
+
         }
     }
 }

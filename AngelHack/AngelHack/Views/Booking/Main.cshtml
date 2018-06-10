@@ -3,94 +3,50 @@
     ViewBag.Title = "Main";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Main</h2>
-<head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-</head>
 @section Sidebar{
+    @Html.AntiForgeryToken()
 
-    @using (Ajax.BeginForm("MainAJAX", "Booking", Model.locationSelected + Model.StudioTypeselected, new AjaxOptions
-    {
-        InsertionMode = InsertionMode.Replace,
-        HttpMethod = "Get",
-        OnFailure = "MainLoadFailure",
-        AllowCache = false,
-        LoadingElementId = "",
-        UpdateTargetId = "divMain",
-    }))
-
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-group">
-
-            
-           
-            <div style="margin-left:15px;">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                    <hr />
-                    <div class="navbar-collapse collapse">
-                        @Html.LabelFor(model => model.locationSelected, htmlAttributes: new { @class = "control-label" })
-                        <br />
-
-                        @Html.DropDownListFor(model => model.locationSelected, Model.locationList,new { @class="control-label"})
-
-
+    <div class="form-group">
+        <div style="margin-left:15px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <hr />            
+            <b-form-slider v-model="sliderValue" :min="6" :max="22" trigger-change-event></b-form-slider>
+            <p v-if="sliderValue < 13" style="text-align:center;">{{sliderValue}} AM</p>
+            <p v-else style="text-align:center;"> {{sliderValue-12}} PM</p>            
+            <hr />
+            <div class="navbar-collapse collapse">
+                @Html.LabelFor(model => model.locationSelected, htmlAttributes: new { @class = "red" })
+                <br />
+                @foreach (var location in Model.locationList)
+                {
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="Location" checked="" v-model="LocationValue" v-on:change="fChanged" value="@location.Value"> <span class="label-text">
+                                @location.Text
+                            </span>
+                        </label>
                     </div>
-                    <hr />
-                    <div class="navbar-collapse collapse">
-                        @Html.LabelFor(model => model.StudioTypeselected, htmlAttributes: new { @class = "control-label" })
-                        <br />
-                        @Html.DropDownListFor(model => model.StudioTypeselected, Model.StudioTypeList, new { @class = "control-label" })
-
-
+                }
+            </div>
+            <hr />
+            <div class="navbar-collapse collapse">
+                @Html.LabelFor(model => model.StudioTypeselected, htmlAttributes: new { @class = "red" })
+                <br />
+                @foreach (var studio in Model.StudioTypeList)
+                {
+                    <div class="form-check">
+                        <label>
+                            <input type="radio" name="Studio" checked="" v-model="StudioValue" v-on:change="fChanged" value="@studio.Value"> <span class="label-text">
+                                @studio.Text
+                            </span>
+                        </label>
                     </div>
-                </div>
-           
+                }
+            </div>
         </div>
-    }
+    </div>
 }
 <div class="form-group" id="divMain">
-    @{
-        Html.RenderPartial("_Main", Model.mainList);
-    }
+    @{ Html.RenderPartial("_Main", Model.mainList); }
 </div>
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/jquery.timePicker.min.js"></script>
-    <link href="~/Scripts/timePicker.css" rel="stylesheet"/>
-
-    <script type="text/javascript">
-        $(function () {
-            $("#locationSelected").change(function () {
-                $(this).closest('form').submit();
-            })
-        });
-
-        $(function () {
-            $("#StudioTypeselected").change(function () {
-                $(this).closest('form').submit();
-            })
-        });
-
-        function MainLoadFailure(response) {
-            $("#divStatus").html("Problem loading data....");
-        }
-
-        $(function () {
-            $("#time2").timePicker({
-                startTime: "02.00 AM", // Using string. Can take string or Date object.
-                endTime: new Date(0, 0, 0, 15, 30, 0), // Using Date object here.
-                timeFormat: 'hh.mm tt',
-                step: 15
-            });
-        });
-    </script>
-
-}

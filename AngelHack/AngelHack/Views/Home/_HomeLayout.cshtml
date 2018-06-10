@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Spaces for Trainers</title>
-    @Styles.Render("~/Content/css")    
+    @Styles.Render("~/Content/css")
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 <body class="navbar-static-top">
     <div class="navbar navbar-custom navbar-fixed-top" style="background-color:white;">
@@ -21,13 +24,14 @@
             </div>
         </div>
     </div>
-    <div>
+    <div >
         @RenderBody()
         <hr />
         <footer style="text-align: right">
             <p>&copy; @DateTime.Now.Year - Trainer Space</p>
         </footer>
-    </div>    
-    @Scripts.Render("~/bundles/bootstrap")    
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    
 </body>
 </html>

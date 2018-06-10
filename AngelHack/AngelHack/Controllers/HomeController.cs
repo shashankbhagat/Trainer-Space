@@ -1,6 +1,7 @@
 ﻿using AngelHack.Model;
 using AngelHack.Model.Contract;
 using AngelHack.Utils;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace AngelHack.Controllers
@@ -24,6 +25,8 @@ namespace AngelHack.Controllers
         public ActionResult Welcome()
         {
             ViewBag.Message = "Your contact page.";
+
+            Queue<int> queue = new Queue<int>();
 
             var bookings = _bookingRepository.GetLastBooking(4);
 

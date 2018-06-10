@@ -1,5 +1,6 @@
 ﻿using AngelHack.Model.Contract;
 using AngelHack.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -27,7 +28,7 @@ namespace AngelHack.Model.Implementation
                 .ToList();
         }
 
-        IEnumerable<SpaceViewModel> ISpaceRepository.GetAlailableSpaces(int spaceTypeId, int locationId)
+        IEnumerable<SpaceViewModel> ISpaceRepository.GetAlailableSpaces(int spaceTypeId, int locationId, DateTime? date)
         {
             return _appDbContext.Spaces
                 .Include("Location")

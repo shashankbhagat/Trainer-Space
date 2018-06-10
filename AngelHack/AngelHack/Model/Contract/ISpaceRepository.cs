@@ -1,4 +1,5 @@
 ﻿using AngelHack.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -8,6 +9,6 @@ namespace AngelHack.Model.Contract
     {
         IEnumerable<SelectListItem> GetLocations();
         IEnumerable<SelectListItem> GetSpaceTypes();
-        IEnumerable<SpaceViewModel> GetAlailableSpaces(int spaceTypeId, int locationId);
+        IEnumerable<SpaceViewModel> GetAlailableSpaces(int spaceTypeId, int locationId, DateTime? date);
     }
 }
